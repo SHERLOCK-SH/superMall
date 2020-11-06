@@ -8,5 +8,6 @@ module.exports = {
                 'network' : '@/network',
             }
         }
-    }
+    },
+  lintOnSave: false
 }
