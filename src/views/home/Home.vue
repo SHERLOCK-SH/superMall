@@ -28,7 +28,6 @@
           //1.请求多个数据
       getHomeMultidata().then(res => {
         this.banners = res.data.banner.list;
-        console.log(this.banners);
         this.recommends = res.data.recommend.list;
       })
     }

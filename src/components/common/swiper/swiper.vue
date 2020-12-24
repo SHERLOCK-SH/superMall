@@ -40,7 +40,7 @@
         totalWidth: 0, // swiper的宽度
         swiperStyle: {}, // swiper样式
         currentIndex: 1, // 当前的index
-        scrolling: false, // 是否正在滚动
+        scrolling: true, // 是否正在滚动
       }
     },
     mounted: function () {
