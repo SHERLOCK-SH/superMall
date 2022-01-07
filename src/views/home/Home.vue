@@ -1,7 +1,12 @@
 <template>
   <div id="home">
     <nav-bar class="home-nav"><div slot="center">购物街</div></nav-bar>
-    <scroll class="content" ref="scroll" :probe-type="3" @scroll="contentScroll">
+    <scroll class="content" ref="scroll"
+    :probe-type="3"
+    @scroll="contentScroll"
+    :pull-up-load="true"
+    @pullingUp="loadmore"
+    >
       <home-swiper :banners="banners" />
       <recommendview :recommends="recommends" />
       <feature-view />
@@ -87,6 +92,10 @@ export default {
     backClick() {
       this.$refs.scroll.scrollTo(0, 0,500);
     },
+    loadmore(){
+      this.getHomeGoods(this.currentType);
+      this.$refs.scroll.finishLoad()
+    },
     getHomeMultidata() {
       getHomeMultidata()
         .then((res) => {
@@ -103,7 +112,7 @@ export default {
         // console.log(res);
         this.goods[type].list.push(...res.data.list);
         this.goods[type].page += 1;
-        console.log(this.goods[type].page);
+        // console.log(this.goods[type].page);
       });
     },
   },
